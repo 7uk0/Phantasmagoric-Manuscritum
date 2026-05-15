@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Files — Phantasmagoric Manuscritum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ascii-border-outer">
+
+  <span class="ascii-border-top">+================================================================================================================================================================================================================================================================================================================+</span>
+
+  <div class="ascii-border-sides">
+
+    <div class="ascii-side">
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+    </div>
+
+    <div class="page-inner">
+
+      <!-- TITLE BAR -->
+      <div class="window-titlebar">
+        <div class="titlebar-left">
+          <span class="titlebar-icon">📁</span>
+          Repository Files — github.com/7uk0/Phantasmagoric-Manuscritum
+        </div>
+        <div class="titlebar-buttons">
+          <div class="tb-btn">_</div>
+          <div class="tb-btn">□</div>
+          <div class="tb-btn">✕</div>
+        </div>
+      </div>
+
+      <!-- MENU BAR -->
+      <div class="menubar">
+        <span><u>F</u>ile</span>
+        <span><u>E</u>dit</span>
+        <span><u>V</u>iew</span>
+        <span><u>H</u>elp</span>
+      </div>
+
+      <!-- NAV BAR -->
+      <nav class="navbar">
+        <a class="nav-btn" href="index.html">📄 Home</a>
+        <a class="nav-btn" href="activity.html">📋 Activity</a>
+        <a class="nav-btn active" href="files.html">📁 Files</a>
+      </nav>
+
+      <!-- MARQUEE -->
+      <div class="marquee-strip">
+        <span class="marquee-inner">
+          *** WELCOME TO THE PHANTASMAGORIC MANUSCRITUM ***  |  DON'T JUST STAND THERE IN THE WAITING ROOM  |  COME ON IN Pr1m8  |  JOIN THE-PHANTASMAGORIC-INQUISITION  |  WE'VE GOT ELVISH ESOTERICA FOR DAYS  |  ALL FLOWS — HERACLITUS  |  ***
+        </span>
+      </div>
+
+      <!-- FILE TREE PANEL -->
+      <div class="panel">
+        <div class="panel-title">LIVE FILE TREE</div>
+        <div class="file-tree-box">
+          <pre class="file-tree-pre" id="file-tree-pre"><span class="api-loading">FETCHING REPOSITORY TREE<span class="blink">█</span></span></pre>
+        </div>
+        <div class="tree-stats" id="tree-stats"></div>
+      </div>
+
+      <!-- STATUS BAR -->
+      <div class="statusbar">
+        <span class="statusbar-cell">v1.0 — BOOTLOADER</span>
+        <span class="statusbar-cell" id="status-cell">LOADING...</span>
+        <span class="statusbar-cell">GITHUB API</span>
+      </div>
+
+      <div class="footer-text">
+        &copy; The-Phantasmagoric-Inquisition &nbsp;|&nbsp;
+        <a href="https://github.com/7uk0/Phantasmagoric-Manuscritum" target="_blank">github.com/7uk0/Phantasmagoric-Manuscritum</a>
+        &nbsp;|&nbsp; -Be Well 🕊️
+      </div>
+
+    </div><!-- /page-inner -->
+
+    <div class="ascii-side right">
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+    </div>
+
+  </div><!-- /ascii-border-sides -->
+
+  <span class="ascii-border-bottom">+================================================================================================================================================================================================================================================================================================================+</span>
+
+</div><!-- /ascii-border-outer -->
+
+<script>
+// To increase rate limit from 60 to 5,000 req/hr, add your token:
+// const TOKEN = 'ghp_yourTokenHere';
+// Then add to fetch headers: Authorization: `Bearer ${TOKEN}`
+
+const REPO     = '7uk0/Phantasmagoric-Manuscritum';
+const BASE_URL = `https://github.com/${REPO}/blob/main`;
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function formatSize(bytes) {
+  if (!bytes)              return '';
+  if (bytes < 1024)        return `${bytes}B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)}KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
+}
+
+function buildTree(items) {
+  const root  = {};
+  const blobs = items.filter(i => i.type === 'blob');
+  for (const item of blobs) {
+    const parts = item.path.split('/');
+    let node    = root;
+    for (let i = 0; i < parts.length - 1; i++) {
+      if (!node[parts[i]]) node[parts[i]] = { _type: 'dir', _children: {} };
+      node = node[parts[i]]._children;
+    }
+    node[parts[parts.length - 1]] = {
+      _type: 'blob', _size: item.size, _path: item.path
+    };
+  }
+  return root;
+}
+
+function renderTree(node, prefix, parentPath) {
+  prefix     = prefix     ?? '';
+  parentPath = parentPath ?? '';
+  let html   = '';
+
+  const entries = Object.entries(node).sort((a, b) => {
+    const aDir = a[1]._type === 'dir';
+    const bDir = b[1]._type === 'dir';
+    if (aDir !== bDir) return aDir ? -1 : 1;
+    return a[0].localeCompare(b[0]);
+  });
+
+  entries.forEach(([name, info], idx) => {
+    const last       = idx === entries.length - 1;
+    const connector  = last ? '└── ' : '├── ';
+    const childPfx   = prefix + (last ? '    ' : '│   ');
+    const fullPath   = parentPath ? `${parentPath}/${name}` : name;
+
+    if (info._type === 'dir') {
+      html += `${prefix}${connector}<span class="tree-dir-label">📁 ${escHtml(name)}/</span>\n`;
+      html += renderTree(info._children, childPfx, fullPath);
+    } else {
+      const sz  = info._size ? ` <span class="tree-size">(${formatSize(info._size)})</span>` : '';
+      const url = escHtml(`${BASE_URL}/${fullPath}`);
+      html += `${prefix}${connector}<a href="${url}" target="_blank" rel="noopener">📄 ${escHtml(name)}</a>${sz}\n`;
+    }
+  });
+
+  return html;
+}
+
+async function loadTree() {
+  const pre        = document.getElementById('file-tree-pre');
+  const stats      = document.getElementById('tree-stats');
+  const statusCell = document.getElementById('status-cell');
+
+  try {
+    const commitRes = await fetch(
+      `https://api.github.com/repos/${REPO}/commits/main`
+    );
+    if (!commitRes.ok) throw new Error(`GitHub API ${commitRes.status}`);
+    const commit   = await commitRes.json();
+    const treeSha  = commit.commit.tree.sha;
+    const shortSha = commit.sha.slice(0, 7);
+
+    const treeRes = await fetch(
+      `https://api.github.com/repos/${REPO}/git/trees/${treeSha}?recursive=1`
+    );
+    if (!treeRes.ok) throw new Error(`Tree API ${treeRes.status}`);
+    const treeData = await treeRes.json();
+
+    const blobs     = treeData.tree.filter(i => i.type === 'blob');
+    const totalSize = blobs.reduce((s, i) => s + (i.size || 0), 0);
+    const repoName  = REPO.split('/')[1];
+    const root      = buildTree(treeData.tree);
+
+    pre.innerHTML = `<span class="tree-dir-label">📁 ${escHtml(repoName)}/</span>\n`
+                  + renderTree(root);
+
+    const commitUrl = `https://github.com/${REPO}/commit/${commit.sha}`;
+    stats.innerHTML = `<span>FILES: ${blobs.length}</span>`
+      + `<span>TOTAL SIZE: ${formatSize(totalSize)}</span>`
+      + `<span>HEAD: <a href="${escHtml(commitUrl)}" target="_blank" rel="noopener">${shortSha}</a></span>`;
+
+    const remaining = treeRes.headers.get('X-RateLimit-Remaining') ?? '?';
+    const lim       = treeRes.headers.get('X-RateLimit-Limit')     ?? '60';
+    statusCell.textContent = `API: ${remaining}/${lim} REQ LEFT`;
+
+  } catch (e) {
+    pre.textContent        = `ERROR: ${e.message}`;
+    statusCell.textContent = 'STATUS: API ERROR';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadTree);
+</script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity — Phantasmagoric Manuscritum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ascii-border-outer">
+
+  <span class="ascii-border-top">+================================================================================================================================================================================================================================================================================================================+</span>
+
+  <div class="ascii-border-sides">
+
+    <div class="ascii-side">
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+    </div>
+
+    <div class="page-inner">
+
+      <!-- TITLE BAR -->
+      <div class="window-titlebar">
+        <div class="titlebar-left">
+          <span class="titlebar-icon">📋</span>
+          Activity &amp; About — github.com/7uk0/Phantasmagoric-Manuscritum
+        </div>
+        <div class="titlebar-buttons">
+          <div class="tb-btn">_</div>
+          <div class="tb-btn">□</div>
+          <div class="tb-btn">✕</div>
+        </div>
+      </div>
+
+      <!-- MENU BAR -->
+      <div class="menubar">
+        <span><u>F</u>ile</span>
+        <span><u>E</u>dit</span>
+        <span><u>V</u>iew</span>
+        <span><u>H</u>elp</span>
+      </div>
+
+      <!-- NAV BAR -->
+      <nav class="navbar">
+        <a class="nav-btn" href="index.html">📄 Home</a>
+        <a class="nav-btn active" href="activity.html">📋 Activity</a>
+        <a class="nav-btn" href="files.html">📁 Files</a>
+      </nav>
+
+      <!-- MARQUEE -->
+      <div class="marquee-strip">
+        <span class="marquee-inner">
+          *** WELCOME TO THE PHANTASMAGORIC MANUSCRITUM ***  |  DON'T JUST STAND THERE IN THE WAITING ROOM  |  COME ON IN Pr1m8  |  JOIN THE-PHANTASMAGORIC-INQUISITION  |  WE'VE GOT ELVISH ESOTERICA FOR DAYS  |  ALL FLOWS — HERACLITUS  |  ***
+        </span>
+      </div>
+
+      <!-- ══ LIVE REPOSITORY VISUALIZATION ══ -->
+      <div class="panel">
+        <div class="panel-title">LIVE REPOSITORY VISUALIZATION</div>
+        <div style="background:#000;border-top:2px solid var(--win95-dark);border-left:2px solid var(--win95-dark);border-right:2px solid var(--win95-white);border-bottom:2px solid var(--win95-white);">
+          <canvas id="viz-canvas" width="900" height="420"
+            style="display:block;width:100%;max-width:900px;margin:0 auto;cursor:default;">
+          </canvas>
+        </div>
+        <div id="viz-status"
+          style="font-family:'VT323',monospace;font-size:17px;color:var(--win95-dark);
+                 padding:3px 10px;background:var(--win95-gray);
+                 border-top:1px solid var(--win95-dark);letter-spacing:1px;">
+          CONNECTING TO GITHUB API<span class="blink">█</span>
+        </div>
+      </div>
+
+      <!-- ══ LIVE COMMIT FEED ══ -->
+      <div class="panel">
+        <div class="panel-title">LIVE COMMIT FEED</div>
+        <div id="commit-feed">
+          <div class="api-loading">FETCHING COMMITS<span class="blink">█</span></div>
+        </div>
+      </div>
+
+      <!-- ══ THE TEAM ══ -->
+      <div class="panel">
+        <div class="panel-title">THE TEAM</div>
+        <div class="author-line">7uko</div>
+        <div class="author-line">Zuko</div>
+        <div class="author-line">Bass Proteus</div>
+        <div class="author-line">John Mulberry</div>
+        <div class="author-line">The Mullberry Man</div>
+      </div>
+
+      <!-- ══ TECH STACK ══ -->
+      <div class="panel">
+        <div class="panel-title">TECH STACK</div>
+        <div class="tech-row">
+          <span class="tech-name">Python 3 / curses</span>
+          <span class="tech-desc">Modal text editor — Normal, Insert, Command modes</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Rich + tqdm</span>
+          <span class="tech-desc">Retro BIOS boot sequence animation</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">tkinter</span>
+          <span class="tech-desc">Fax machine UI — thermal print animator</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">pyfiglet</span>
+          <span class="tech-desc">ASCII art (imported, future use)</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">HTML + CSS</span>
+          <span class="tech-desc">This Win95-styled landing site — no framework, no build step</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Canvas API + JS</span>
+          <span class="tech-desc">Live git history visualizer above — fetches from GitHub API</span>
+        </div>
+      </div>
+
+      <!-- ══ ROADMAP ══ -->
+      <div class="panel">
+        <div class="panel-title">ROADMAP — COMING SOON</div>
+        <div class="roadmap-item">Internet Connection</div>
+        <div class="roadmap-item">Threads / Chatrooms</div>
+        <div class="roadmap-item">Windows 10, 11 / VS Code compatibility</div>
+        <div class="roadmap-item">Live home/main node site for downloading and data routing</div>
+        <div class="roadmap-item">Email terminal</div>
+        <div class="roadmap-item">Time Wave 0 Program integration</div>
+        <div class="roadmap-item">Built-in VPN</div>
+        <div class="roadmap-item">Full code editor</div>
+      </div>
+
+      <!-- ══ REPOSITORY LINK ══ -->
+      <div class="panel">
+        <div class="panel-title">REPOSITORY</div>
+        <div class="repo-btn-wrap">
+          <a class="repo-btn" href="https://github.com/7uk0/Phantasmagoric-Manuscritum"
+             target="_blank" rel="noopener">
+            github.com/7uk0/Phantasmagoric-Manuscritum
+          </a>
+        </div>
+      </div>
+
+      <!-- STATUS BAR -->
+      <div class="statusbar">
+        <span class="statusbar-cell">v1.0 — BOOTLOADER</span>
+        <span class="statusbar-cell" id="status-cell">LOADING...</span>
+        <span class="statusbar-cell">ALL FLOWS</span>
+      </div>
+
+      <div class="footer-text">
+        &copy; The-Phantasmagoric-Inquisition &nbsp;|&nbsp;
+        <a href="https://github.com/7uk0/Phantasmagoric-Manuscritum" target="_blank">github.com/7uk0/Phantasmagoric-Manuscritum</a>
+        &nbsp;|&nbsp; -Be Well 🕊️
+      </div>
+
+    </div><!-- /page-inner -->
+
+    <div class="ascii-side right">
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+    </div>
+
+  </div><!-- /ascii-border-sides -->
+
+  <span class="ascii-border-bottom">+================================================================================================================================================================================================================================================================================================================+</span>
+
+</div><!-- /ascii-border-outer -->
+
+<script>
+// To increase rate limit from 60 to 5,000 req/hr, add your token:
+// const TOKEN = 'ghp_yourTokenHere';
+// Then add to fetch headers: Authorization: `Bearer ${TOKEN}`
+
+const REPO = '7uk0/Phantasmagoric-Manuscritum';
+
+// ── Shared helpers ─────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function timeAgo(dateStr) {
+  const diff   = Date.now() - new Date(dateStr).getTime();
+  const secs   = Math.floor(diff / 1000);
+  if (secs  <  60) return 'just now';
+  const mins   = Math.floor(secs  / 60);
+  if (mins  <  60) return `${mins} minute${mins !== 1 ? 's' : ''} ago`;
+  const hrs    = Math.floor(mins  / 60);
+  if (hrs   <  24) return `${hrs} hour${hrs !== 1 ? 's' : ''} ago`;
+  const days   = Math.floor(hrs   / 24);
+  if (days  <  30) return `${days} day${days !== 1 ? 's' : ''} ago`;
+  const months = Math.floor(days  / 30);
+  if (months < 12) return `${months} month${months !== 1 ? 's' : ''} ago`;
+  const years  = Math.floor(months / 12);
+  return `${years} year${years !== 1 ? 's' : ''} ago`;
+}
+
+// ── Commit feed renderer ───────────────────────────────────────────────────
+function renderFeed(list, remaining, limit) {
+  const feed       = document.getElementById('commit-feed');
+  const statusCell = document.getElementById('status-cell');
+
+  if (!list.length) {
+    feed.innerHTML = '<div class="api-loading">NO COMMITS FOUND</div>';
+    return;
+  }
+
+  feed.innerHTML = list.map(c => {
+    const sha7   = c.sha.slice(0, 7);
+    const msg    = escHtml(c.commit.message.split('\n')[0]);
+    const author = escHtml(c.commit.author.name);
+    const date   = c.commit.author.date;
+    const full   = new Date(date).toLocaleString();
+    const url    = `https://github.com/${REPO}/commit/${c.sha}`;
+
+    return `<div class="commit-entry">
+  <div><a class="commit-sha-link" href="${url}" target="_blank" rel="noopener">${sha7}</a></div>
+  <div class="commit-message">${msg}</div>
+  <div class="commit-meta">
+    <span class="commit-author">◈ ${author}</span>
+    <span title="${full}">⏱ ${timeAgo(date)}</span>
+  </div>
+</div>`;
+  }).join('');
+
+  statusCell.textContent = `API: ${remaining}/${limit} REQ LEFT`;
+}
+
+// ── Visualizer ─────────────────────────────────────────────────────────────
+const _viz = (function () {
+  const canvas = document.getElementById('viz-canvas');
+  const ctx    = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  let vizCommits = [], nodes = {}, particles = [], currentIdx = -1;
+  const ROOT = { x: 78, y: Math.floor((H - 38) / 2), r: 13 };
+
+  function radGrad(x, y, r0, r1, c0, c1) {
+    const g = ctx.createRadialGradient(x, y, r0, x, y, r1);
+    g.addColorStop(0, c0); g.addColorStop(1, c1); return g;
+  }
+
+  function bezier(ax, ay, bx, by) {
+    const mx = (ax + bx) / 2;
+    ctx.beginPath(); ctx.moveTo(ax, ay);
+    ctx.bezierCurveTo(mx, ay, mx, by, bx, by);
+  }
+
+  function trunc(s, n) { return s.length > n ? s.slice(0, n - 1) + '…' : s; }
+
+  function layoutNodes(names) {
+    nodes = {};
+    const n    = names.length; if (!n) return;
+    const cols = Math.ceil(Math.sqrt(n * 1.4));
+    const rows = Math.ceil(n / cols);
+    const aw   = W - 185;
+    const gx   = Math.min(160, aw / Math.max(cols, 1));
+    const gy   = Math.min(44,  (H - 80) / Math.max(rows, 1));
+    const ox   = 168 + (aw - gx * (cols - 1)) / 2;
+    const oy   = 28  + ((H - 78) - gy * (rows - 1)) / 2;
+    names.forEach((name, i) => {
+      nodes[name] = {
+        x: ox + (i % cols) * gx, y: oy + Math.floor(i / cols) * gy,
+        r: 6, glow: 0, label: name,
+      };
+    });
+  }
+
+  function spawnParticles(from, to, count) {
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: from.x, y: from.y,
+        tx: to.x + (Math.random() - .5) * 20,
+        ty: to.y + (Math.random() - .5) * 20,
+        t: 0, dt: .016 + Math.random() * .018,
+        r: 1.2 + Math.random() * 1.6,
+      });
+    }
+  }
+
+  function drawFrame() {
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+
+    // Phosphor dot grid
+    ctx.fillStyle = 'rgba(0,55,0,0.18)';
+    for (let x = 22; x < W; x += 24)
+      for (let y = 22; y < H - 38; y += 24) {
+        ctx.beginPath(); ctx.arc(x, y, .9, 0, Math.PI * 2); ctx.fill();
+      }
+
+    const aFiles = new Set(
+      currentIdx >= 0 ? (vizCommits[currentIdx]?.files ?? []) : []
+    );
+
+    // Edges
+    Object.values(nodes).forEach(nd => {
+      const hot = aFiles.has(nd.label);
+      bezier(ROOT.x, ROOT.y, nd.x, nd.y);
+      ctx.strokeStyle = hot
+        ? `rgba(0,200,0,${.22 + nd.glow * .48})`
+        : `rgba(0,52,0,${.14 + nd.glow * .10})`;
+      ctx.lineWidth = hot ? 1.5 : 1; ctx.stroke();
+    });
+
+    // Root node
+    ctx.fillStyle = radGrad(ROOT.x, ROOT.y, ROOT.r, ROOT.r * 5,
+      'rgba(255,153,0,0.42)', 'rgba(0,0,0,0)');
+    ctx.beginPath(); ctx.arc(ROOT.x, ROOT.y, ROOT.r * 5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(ROOT.x, ROOT.y, ROOT.r, 0, Math.PI * 2);
+    ctx.fillStyle = '#ff9900'; ctx.fill();
+    ctx.strokeStyle = '#ffcc44'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.font = '10px Share Tech Mono,monospace';
+    ctx.fillStyle = '#ff9900'; ctx.textAlign = 'center';
+    ctx.shadowColor = '#ff9900'; ctx.shadowBlur = 8;
+    ctx.fillText(REPO.split('/')[1], ROOT.x, ROOT.y + ROOT.r + 14);
+    ctx.shadowBlur = 0; ctx.textAlign = 'left';
+
+    // File nodes
+    Object.values(nodes).forEach(nd => {
+      const hot = aFiles.has(nd.label), gl = nd.glow;
+      if (gl > .04 || hot) {
+        ctx.fillStyle = radGrad(nd.x, nd.y, nd.r, nd.r * 6,
+          `rgba(0,255,0,${(hot ? .28 : 0) + gl * .32})`, 'rgba(0,0,0,0)');
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, nd.r * 6, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.beginPath(); ctx.arc(nd.x, nd.y, nd.r + (hot ? 2 : 0), 0, Math.PI * 2);
+      ctx.fillStyle = hot ? '#00ff00'
+        : (gl > .08 ? `rgba(0,${Math.round(gl * 185 + 50)},0,1)` : '#002200');
+      ctx.fill();
+      ctx.strokeStyle = hot ? '#00ff44' : (gl > .08 ? '#009900' : '#003800');
+      ctx.lineWidth = 1; ctx.stroke();
+      ctx.font = `${hot ? 'bold ' : ''}10px Share Tech Mono,monospace`;
+      ctx.fillStyle = hot ? '#00ff00' : (gl > .15 ? '#00cc00' : '#004000');
+      ctx.shadowColor = hot ? '#00ff00' : 'transparent'; ctx.shadowBlur = hot ? 9 : 0;
+      ctx.fillText(trunc(nd.label, 24), nd.x + nd.r + 5, nd.y + 4);
+      ctx.shadowBlur = 0;
+      if (nd.glow > 0) nd.glow = Math.max(0, nd.glow - .005);
+    });
+
+    // Particles
+    particles = particles.filter(p => p.t < 1);
+    particles.forEach(p => {
+      p.x += (p.tx - p.x) * .09; p.y += (p.ty - p.y) * .09; p.t += p.dt;
+      ctx.globalAlpha = Math.max(0, 1 - p.t * 1.15);
+      ctx.fillStyle = '#00ff00';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    // Bottom commit bar
+    ctx.fillStyle = 'rgba(0,10,0,0.94)'; ctx.strokeStyle = '#002200'; ctx.lineWidth = 1;
+    ctx.fillRect(0, H - 38, W, 38); ctx.strokeRect(0, H - 38, W, 38);
+
+    if (currentIdx >= 0) {
+      const c = vizCommits[currentIdx];
+      ctx.font = 'bold 11px Share Tech Mono,monospace'; ctx.fillStyle = '#ffff00';
+      ctx.fillText(`[${c.sha.slice(0, 7)}]`, 8, H - 20);
+      ctx.font = '11px Share Tech Mono,monospace'; ctx.fillStyle = '#00ff00';
+      ctx.fillText(trunc(c.message, 60), 82, H - 20);
+      ctx.fillStyle = '#005500';
+      ctx.fillText(`◈ ${c.author}   ⏱ ${new Date(c.date).toLocaleDateString()}`, 8, H - 6);
+
+      // Timeline dots
+      const dotR = 4, dotGap = dotR * 2 + 7;
+      const dotsX = W - vizCommits.length * dotGap - 12;
+      vizCommits.forEach((_, i) => {
+        const cx = dotsX + i * dotGap, cy = H - 19, cur = i === currentIdx;
+        if (cur) {
+          ctx.fillStyle = 'rgba(255,255,0,0.14)';
+          ctx.beginPath(); ctx.arc(cx, cy, dotR * 2.8, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(cx, cy, cur ? dotR + 2 : dotR, 0, Math.PI * 2);
+        ctx.fillStyle = cur ? '#ffff00' : (i < currentIdx ? '#446600' : '#001a00');
+        ctx.fill();
+        ctx.strokeStyle = cur ? '#ffcc00' : '#003000'; ctx.lineWidth = 1; ctx.stroke();
+      });
+    } else {
+      ctx.font = '11px Share Tech Mono,monospace'; ctx.fillStyle = '#004400';
+      ctx.fillText('FETCHING COMMIT DATA...', 8, H - 20);
+    }
+  }
+
+  function activateCommit(idx) {
+    currentIdx = idx;
+    vizCommits[idx].files.forEach(f => {
+      if (nodes[f]) { nodes[f].glow = 1.0; spawnParticles(ROOT, nodes[f], 9); }
+    });
+  }
+
+  function startPlayback() {
+    let i = 0;
+    (function tick() {
+      if (vizCommits.length) activateCommit(i++ % vizCommits.length);
+      setTimeout(tick, 2700);
+    }());
+  }
+
+  // Start animation loop immediately (renders grid while loading)
+  (function loop() { drawFrame(); requestAnimationFrame(loop); }());
+
+  // Return public init so the shared fetch can hand data in
+  return {
+    load(commits, allFiles) {
+      vizCommits = commits;
+      layoutNodes(allFiles);
+      const s = document.getElementById('viz-status');
+      s.textContent = `LIVE ◈ ${commits.length} COMMIT${commits.length !== 1 ? 'S' : ''}`
+                    + ` — ${allFiles.length} FILE${allFiles.length !== 1 ? 'S' : ''}`;
+      startPlayback();
+    },
+    error(msg) {
+      document.getElementById('viz-status').textContent = `! ERROR: ${msg}`;
+    },
+  };
+}());
+
+// ── Single shared fetch ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  const statusCell = document.getElementById('status-cell');
+
+  try {
+    // 1. Fetch list → render commit feed straight away
+    const r0 = await fetch(
+      `https://api.github.com/repos/${REPO}/commits?per_page=30`
+    );
+    if (!r0.ok) throw new Error(`GitHub API ${r0.status}`);
+    const list      = await r0.json();
+    const remaining = r0.headers.get('X-RateLimit-Remaining') ?? '?';
+    const limit     = r0.headers.get('X-RateLimit-Limit')     ?? '60';
+
+    renderFeed(list, remaining, limit);
+
+    // 2. Fetch per-commit file details for the visualizer (parallel)
+    document.getElementById('viz-status').textContent =
+      `LOADING ${list.length} COMMITS…`;
+
+    const full = await Promise.all(list.map(c =>
+      fetch(`https://api.github.com/repos/${REPO}/commits/${c.sha}`)
+        .then(r => r.json())
+        .then(d => ({
+          sha:     d.sha,
+          message: (d.commit?.message ?? '').split('\n')[0],
+          author:  d.commit?.author?.name ?? 'Unknown',
+          date:    d.commit?.author?.date ?? '',
+          files:   (d.files ?? []).map(f => f.filename),
+        }))
+    ));
+
+    const vizCommits = full.slice().reverse(); // oldest → newest for playback
+    const allFiles   = [...new Set(vizCommits.flatMap(c => c.files))].sort();
+
+    _viz.load(vizCommits, allFiles);
+    statusCell.textContent = `API: ${remaining}/${limit} REQ LEFT`;
+
+  } catch (e) {
+    document.getElementById('commit-feed').innerHTML =
+      `<div class="api-error">! ${escHtml(e.message)}</div>`;
+    statusCell.textContent = 'STATUS: API ERROR';
+    _viz.error(e.message);
+  }
+});
+</script>
+</body>
+</html>
