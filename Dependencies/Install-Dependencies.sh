@@ -44,7 +44,7 @@ DEPENDENCIES=(
 
 for package in "${DEPENDENCIES[@]}"; do
     echo "[→] Installing $package..."
-    pip3 install "$package" || {
+    pip3 install "$package" --break-system-packages || {
         echo "[!] Failed to install $package"
         exit 1
     }
